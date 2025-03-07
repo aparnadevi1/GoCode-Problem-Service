@@ -16,7 +16,7 @@ function errorHandler(err,req,res,next){
         error:err,
         data:{}
     })
-    next();
+   
 
 }
 
