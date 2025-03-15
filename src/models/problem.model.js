@@ -30,5 +30,6 @@ const problemSchema=new mongoose.Schema({
         type:String
       }
 });
-
+//(collectionName,schemaName)
 const Problem=mongoose.model('Problem',problemSchema);
+module.exports=Problem;
