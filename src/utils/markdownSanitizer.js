@@ -10,7 +10,7 @@ function sanitizeMarkdownContent(markdownContent){
 
     //2.Sanitize html  
     const sanitizedHtml=sanitizeHtmlLibrary(convertedHtml,{
-        allowedTags:sanitizeHtmlLibrary.defaults.allowedTags
+        allowedTags:sanitizeHtmlLibrary.defaults.allowedTags.concat(['img'])
     });
     console.log("sanitized html",sanitizedHtml);
 
@@ -20,12 +20,12 @@ function sanitizeMarkdownContent(markdownContent){
     return sanitizedMarkdown;
 }
 
-const input=`
-# Hello World
-### this is a markdownContent
-- something
-<script>alert('wowww')</script>
-[Link](www.google.com)
-`
-sanitizeMarkdownContent(input);
+// const input=`
+// # Hello World
+// ### this is a markdownContent
+// - something
+// <script>alert('wowww')</script>
+// [Link](www.google.com)
+// `
+// sanitizeMarkdownContent(input);
 module.exports={sanitizeMarkdownContent};
