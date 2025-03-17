@@ -1,8 +1,8 @@
 const mongoose=require('mongoose');
-
+mongoose.set('debug', true);
 
 require("dotenv").config();
-const { ATLAS_DB_URL, NODE_ENV } = require('./server.config')
+const { ATLAS_DB_URL, NODE_ENV, LOG_DB_URL } = require('./server.config')
 
 
 async function connectToDB(){
@@ -11,9 +11,10 @@ async function connectToDB(){
 
         if(NODE_ENV=="development")
         {
-            
+           
 
             await mongoose.connect(ATLAS_DB_URL);
+            
            
         }
 
