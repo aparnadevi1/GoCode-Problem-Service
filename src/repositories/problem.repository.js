@@ -1,3 +1,4 @@
+const { deleteProblem } = require('../controllers/problem.controller');
 const NotFound = require('../errors/notfound.error');
 const {Problem}=require('../models');
 
@@ -34,14 +35,30 @@ class ProblemRepository{
    async getProblem(id)
    {
     try{
-      console.log(id);
+    //  console.log(id);
       const problem=await Problem.findById(id);
-      console.log(problem);
+     // console.log(problem);
       if(!problem)
       {
         throw new NotFound("Problem",id)
       }
       return problem;
+    }
+    catch(error)
+    {
+      console.log(error);
+      throw error;
+    }
+   }
+   async deleteProblem(id)
+   {
+    try{
+         const deletedProblem=await Problem.findByIdAndDelete(id);
+         if(!deletedProblem)
+         {
+          throw new NotFound("problem",id);
+         }
+         return deletedProblem; 
     }
     catch(error)
     {
